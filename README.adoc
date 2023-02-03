@@ -24,6 +24,9 @@ Once done, have a look at `~/.config/nvim/init.lua` to learn about the bootstrap
 
 == Mappings
 
+AAA
+
+)))
 If you press a key and then wait, https://github.com/folke/which-key.nvim[which-key] will pop up with suggestions of what you can press next. Here's a few key mappings defined in the configuration to get you started.
 
  * `<space>` is the https://learnvimscriptthehardway.stevelosh.com/chapters/06.html#leader[leader key] (`<leader>`)

@@ -25,3 +25,6 @@
 
 (defn lnnoremap [from to]
   (nnoremap (.. "<leader>" from) to))
+
+(defn llnnoremap [from to]
+  (nnoremap (.. "<localleader>" from) to))

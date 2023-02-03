@@ -5,14 +5,19 @@
 (let [(ok? telescope) (pcall #(require :telescope))]
   (when ok?
     (telescope.setup
-      {:defaults
+      {:extensions
+       {:file_browser
+        {:theme "ivy"}}
+       :defaults
        {:vimgrep_arguments ["rg" "--color=never" "--no-heading"
                             "--with-filename" "--line-number" "--column"
                             "--smart-case" "--hidden" "--follow"
                             "-g" "!.git/"]}})
+    (telescope.load_extension "file_browser")
 
     (util.lnnoremap :ff "Telescope find_files hidden=true")
     (util.lnnoremap :f- "Telescope file_browser")
+    (util.lnnoremap "f0" "Telescope file_browser path=%:p:h") ; Open file browser in files directory
     (util.lnnoremap :fg "Telescope live_grep")
     (util.lnnoremap :* "Telescope grep_string")
     (util.lnnoremap :fb "Telescope buffers")
@@ -25,7 +30,7 @@
     (util.lnnoremap :fC "Telescope command_history")
     (util.lnnoremap :fq "Telescope quickfix")
     (util.lnnoremap :fl "Telescope loclist")
-    (util.lnnoremap :fsa "Telescope lsp_code_actions")
+    ;(util.lnnoremap :fsa "Telescope lsp_code_actions") Broken for now
     (util.lnnoremap :fsi "Telescope lsp_implementations")
     (util.lnnoremap :fsr "Telescope lsp_references")
     (util.lnnoremap :fsS "Telescope lsp_document_symbols")

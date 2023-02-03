@@ -50,6 +50,7 @@
   :folke/which-key.nvim {:mod :which-key}
   :ggandor/lightspeed.nvim {}
   :guns/vim-sexp {:mod :sexp}
+  :nvim-treesitter/nvim-treesitter {:mod :treesitter}
   :hrsh7th/cmp-buffer {}
   :hrsh7th/cmp-cmdline {}
   :hrsh7th/cmp-nvim-lsp {}
@@ -58,11 +59,18 @@
   :jiangmiao/auto-pairs {:mod :auto-pairs}
   :lewis6991/impatient.nvim {}
   :liuchengxu/vim-better-default {:mod :better-default}
-  :marko-cerovac/material.nvim {:mod :material}
+  :shaunsingh/nord.nvim {:mod :nord}
   :mbbill/undotree {:mod :undotree}
   :neovim/nvim-lspconfig {:mod :lspconfig}
   :nvim-lualine/lualine.nvim {:mod :lualine}
+  :akinsho/bufferline.nvim {:mod :bufferline :tag "v3.*" :requires [[:nvim-tree/nvim-web-devicons]]}
+  :folke/trouble.nvim {:mod :trouble :requires [[:nvim-tree/nvim-web-devicons]]}
   :nvim-telescope/telescope.nvim {:mod :telescope :requires [[:nvim-lua/popup.nvim] [:nvim-lua/plenary.nvim]]}
+  :nvim-telescope/telescope-file-browser.nvim {}
+  :vim-test/vim-test {:mod :vim-test}
+  :junegunn/vim-easy-align {:mod :vim-easy-align}
+  :bhurlow/vim-parinfer {}
+  :AndrewRadev/splitjoin.vim {}
   :radenling/vim-dispatch-neovim {}
   :tpope/vim-abolish {}
   :tpope/vim-commentary {}
@@ -76,5 +84,4 @@
   :tpope/vim-unimpaired {}
   :tpope/vim-vinegar {}
   :w0rp/ale {:mod :ale}
-  :wbthomason/packer.nvim {}
-  )
+  :wbthomason/packer.nvim {})

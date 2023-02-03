@@ -9,6 +9,8 @@
   (when ok?
     (lsp.clojure_lsp.setup {})
     (lsp.tsserver.setup {})
+    (lsp.solargraph.setup
+      { :solargraph {:diagnostics false}})
     (lsp.sumneko_lua.setup
       {:cmd ["lua-language-server"]
        :settings {:Lua {:telemetry {:enable false}}}})
