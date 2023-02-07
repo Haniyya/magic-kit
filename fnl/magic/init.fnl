@@ -65,10 +65,12 @@
   :nvim-lualine/lualine.nvim {:mod :lualine}
   :akinsho/bufferline.nvim {:mod :bufferline :tag "v3.*" :requires [[:nvim-tree/nvim-web-devicons]]}
   :folke/trouble.nvim {:mod :trouble :requires [[:nvim-tree/nvim-web-devicons]]}
-  :nvim-telescope/telescope.nvim {:mod :telescope :requires [[:nvim-lua/popup.nvim] [:nvim-lua/plenary.nvim]]}
   :nvim-telescope/telescope-file-browser.nvim {}
+  :otavioschwanck/telescope-alternate.nvim {}
+  :nvim-telescope/telescope.nvim {:mod :telescope :requires [[:nvim-lua/popup.nvim] [:nvim-lua/plenary.nvim]]}
   :vim-test/vim-test {:mod :vim-test}
   :junegunn/vim-easy-align {:mod :vim-easy-align}
+  :glepnir/lspsaga.nvim {:mod :lspsaga :branch :main :requires [[:nvim-tree/nvim-web-devicons]]}
   :bhurlow/vim-parinfer {}
   :AndrewRadev/splitjoin.vim {}
   :radenling/vim-dispatch-neovim {}
@@ -76,7 +78,7 @@
   :tpope/vim-commentary {}
   :tpope/vim-dispatch {}
   :tpope/vim-eunuch {}
-  :tpope/vim-fugitive {}
+  :tpope/vim-fugitive {:mod :fugitive}
   :tpope/vim-repeat {}
   :tpope/vim-sexp-mappings-for-regular-people {}
   :tpope/vim-sleuth {}

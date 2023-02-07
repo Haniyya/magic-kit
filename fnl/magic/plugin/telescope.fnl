@@ -2,7 +2,26 @@
   {autoload {nvim aniseed.nvim
              util magic.util}})
 
-(let [(ok? telescope) (pcall #(require :telescope))]
+(def mappings
+  [
+   ["app/transfer_objects/(.*)/(.*)_export_to.rb"
+    [["app/transfer_objects/[1]/[2]_to.rb" :Original]]]
+   ["app/transfer_objects/(.*)/(.*)_input_to.rb"
+    [["app/transfer_objects/[1]/[2]_to.rb" :Original]]]
+   ["app/transfer_objects/(.*)/(.*)_to.rb"
+    [["app/transfer_objects/[1]/[2]_input_to.rb" :InputTO]
+     ["app/transfer_objects/[1]/[2]_export_to.rb" :ExportTO]
+     ["spec/factories/transfer_objects/[1]_[2]_to.rb" :Factory true]
+     ["spec/factories/transfer_objects/[1]_[2]_export_to.rb" :ExportFactory true]
+     ["spec/factories/transfer_objects/[1]_[2]_input_to.rb" :InputFactory true]]]])
+
+(defn- tmap [from action]
+  (util.lnnoremap from (.. "Telescope " action)))
+
+(let [(ok? telescope) (pcall #(require :telescope))
+      (alternate-ok? alternate) (pcall #(require :telescope-alternate))]
+  (when alternate-ok?
+    (alternate.setup {:presets [:rails :rspec] :mappings mappings}))
   (when ok?
     (telescope.setup
       {:extensions
@@ -14,25 +33,26 @@
                             "--smart-case" "--hidden" "--follow"
                             "-g" "!.git/"]}})
     (telescope.load_extension "file_browser")
+    (telescope.load_extension "telescope-alternate")
 
-    (util.lnnoremap :ff "Telescope find_files hidden=true")
-    (util.lnnoremap :f- "Telescope file_browser")
-    (util.lnnoremap "f0" "Telescope file_browser path=%:p:h") ; Open file browser in files directory
-    (util.lnnoremap :fg "Telescope live_grep")
-    (util.lnnoremap :* "Telescope grep_string")
-    (util.lnnoremap :fb "Telescope buffers")
-    (util.lnnoremap :fH "Telescope help_tags")
-    (util.lnnoremap :fm "Telescope keymaps")
-    (util.lnnoremap :fM "Telescope marks")
-    (util.lnnoremap :fh "Telescope oldfiles")
-    (util.lnnoremap :ft "Telescope filetypes")
-    (util.lnnoremap :fc "Telescope commands")
-    (util.lnnoremap :fC "Telescope command_history")
-    (util.lnnoremap :fq "Telescope quickfix")
-    (util.lnnoremap :fl "Telescope loclist")
-    ;(util.lnnoremap :fsa "Telescope lsp_code_actions") Broken for now
-    (util.lnnoremap :fsi "Telescope lsp_implementations")
-    (util.lnnoremap :fsr "Telescope lsp_references")
-    (util.lnnoremap :fsS "Telescope lsp_document_symbols")
-    (util.lnnoremap :fss "Telescope lsp_workspace_symbols")))
-
+    (tmap :ff "find_files hidden=true")
+    (tmap :f- "file_browser")
+    (tmap "f0" "file_browser path=%:p:h") ; Open file browser in files directory
+    (tmap :fg "live_grep")
+    (tmap :* "grep_string")
+    (tmap :fb "buffers")
+    (tmap :fH "help_tags")
+    (tmap :fm "keymaps")
+    (tmap :fM "marks")
+    (tmap :fh "oldfiles")
+    (tmap :ft "filetypes")
+    (tmap :fc "commands")
+    (tmap :fC "command_history")
+    (tmap :fq "quickfix")
+    (tmap :fl "loclist")
+    (tmap :fa "telescope-alternate alternate_file")
+    ;(tmap :fsa "lsp_code_actions") Broken for now
+    (tmap :fsi "lsp_implementations")
+    (tmap :fsr "lsp_references")
+    (tmap :fsS "lsp_document_symbols")
+    (tmap :fss "lsp_workspace_symbols")))
