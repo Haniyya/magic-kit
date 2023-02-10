@@ -4,6 +4,12 @@
 
 (def mappings
   [
+   ["app/(.*).rb"
+    [["spec/[1]_spec.rb" :Spec true]]]
+   ["lib/(.*).rb"
+    [["spec/lib/[1]_spec.rb" :Spec true]]]
+   ["spec/lib/(.*)_spec.rb"
+    [["lib/[1].rb" :Original true]]]
    ["app/transfer_objects/(.*)/(.*)_export_to.rb"
     [["app/transfer_objects/[1]/[2]_to.rb" :Original]]]
    ["app/transfer_objects/(.*)/(.*)_input_to.rb"
@@ -45,7 +51,7 @@
     (tmap :fm "keymaps")
     (tmap :fM "marks")
     (tmap :fh "oldfiles")
-    (tmap :ft "filetypes")
+    (tmap :ft "treesitter")
     (tmap :fc "commands")
     (tmap :fC "command_history")
     (tmap :fq "quickfix")

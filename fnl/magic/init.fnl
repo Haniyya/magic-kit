@@ -68,7 +68,15 @@
   :nvim-telescope/telescope-file-browser.nvim {}
   :otavioschwanck/telescope-alternate.nvim {}
   :nvim-telescope/telescope.nvim {:mod :telescope :requires [[:nvim-lua/popup.nvim] [:nvim-lua/plenary.nvim]]}
-  :vim-test/vim-test {:mod :vim-test}
+  ;:vim-test/vim-test {:mod :vim-test}
+  :nvim-neotest/neotest {:mod :neotest
+                         :requires [[:nvim-lua/plenary.nvim]
+                                    [:mfussenegger/nvim-dap]
+                                    [:suketa/nvim-dap-ruby]
+                                    [:olimorris/neotest-rspec]
+                                    [:nvim-treesitter/nvim-treesitter]
+                                    [:antoinemadec/FixCursorHold.nvim]]}
+  :haydenmeade/neotest-jest {}
   :junegunn/vim-easy-align {:mod :vim-easy-align}
   :glepnir/lspsaga.nvim {:mod :lspsaga :branch :main :requires [[:nvim-tree/nvim-web-devicons]]}
   :bhurlow/vim-parinfer {}
