@@ -11,7 +11,7 @@
     (lsp.tsserver.setup {})
     (lsp.solargraph.setup
       { :solargraph {:diagnostics false}})
-    (lsp.sumneko_lua.setup
+    (comment (lsp.lua_ls.setup)
       {:cmd ["lua-language-server"]
        :settings {:Lua {:telemetry {:enable false}}}})
 
