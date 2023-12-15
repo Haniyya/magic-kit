@@ -9,9 +9,13 @@
   (when ok?
     (lsp.clojure_lsp.setup {})
     (lsp.tsserver.setup {})
+    (lsp.rust_analyzer.setup {})
+    (lsp.hls.setup {})
+    (lsp.marksman.setup {})
+    (lsp.elmls.setup {})
     (lsp.solargraph.setup
       { :solargraph {:diagnostics false}})
-    (comment (lsp.lua_ls.setup)
+    (lsp.lua_ls.setup
       {:cmd ["lua-language-server"]
        :settings {:Lua {:telemetry {:enable false}}}})
 

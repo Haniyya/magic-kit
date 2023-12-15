@@ -25,6 +25,8 @@
 (set nvim.o.inccommand :split)
 
 (nvim.ex.set :spell)
+(nvim.ex.set :spelllang)
+(set nvim.g.spelllang "de,en")
 (nvim.ex.set :list)
 
 
@@ -40,7 +42,7 @@
 ;; Packer configuration format: https://github.com/wbthomason/packer.nvim
 (plugin.use
   :Olical/aniseed {}
-  :Olical/conjure {}
+  :Olical/conjure {:mod :conjure}
   :Olical/nvim-local-fennel {}
   :PaterJason/cmp-conjure {}
   :PeterRincker/vim-argumentative {}
@@ -54,6 +56,8 @@
   :hrsh7th/cmp-buffer {}
   :hrsh7th/cmp-cmdline {}
   :hrsh7th/cmp-nvim-lsp {}
+  :hrsh7th/cmp-nvim-lsp-signature-help {}
+  :hrsh7th/cmp-nvim-lsp-document-symbol {}
   :hrsh7th/cmp-path {}
   :hrsh7th/nvim-cmp {:mod :cmp}
   :jiangmiao/auto-pairs {:mod :auto-pairs}
@@ -67,6 +71,7 @@
   :folke/trouble.nvim {:mod :trouble :requires [[:nvim-tree/nvim-web-devicons]]}
   :nvim-telescope/telescope-file-browser.nvim {}
   :otavioschwanck/telescope-alternate.nvim {}
+  ;:beauwilliams/focus.nvim {:mod :focus}
   :nvim-telescope/telescope.nvim {:mod :telescope :requires [[:nvim-lua/popup.nvim] [:nvim-lua/plenary.nvim]]}
   ;:vim-test/vim-test {:mod :vim-test}
   :nvim-neotest/neotest {:mod :neotest
