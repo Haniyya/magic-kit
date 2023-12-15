@@ -7,8 +7,8 @@
 
 (let [(ok? lspsaga) (pcall require :lspsaga)]
   (when ok?
-    (lspsaga.setup {})
-    (map :n :gh :lsp_finder)
+    (lspsaga.setup)
+    (map :n :gh :finder)
     (map :n :gr "rename ++project")
     (map :n :K :hover_doc)
     (map [:n :v] :<leader>ca :code_action)

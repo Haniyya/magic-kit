@@ -2,7 +2,8 @@
   {autoload {nvim aniseed.nvim}})
 
 (set nvim.g.ale_linters
-  {:clojure [:clj-kondo :joker]
+  {:ruby []
+   :clojure [:clj-kondo :joker]
    :haskell []})
 
 (set nvim.g.ale_fix_on_save true)

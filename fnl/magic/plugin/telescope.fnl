@@ -25,7 +25,9 @@
   (util.lnnoremap from (.. "Telescope " action)))
 
 (let [(ok? telescope) (pcall #(require :telescope))
-      (alternate-ok? alternate) (pcall #(require :telescope-alternate))]
+      (alternate-ok? alternate) (pcall #(require :telescope-alternate))
+      (tabs-ok? tabs) (pcall #(require :telescope-tabs))]
+  (when tabs-ok? (tabs.setup))
   (when alternate-ok?
     (alternate.setup {:presets [:rails :rspec] :mappings mappings}))
   (when ok?
@@ -51,7 +53,8 @@
     (tmap :fm "keymaps")
     (tmap :fM "marks")
     (tmap :fh "oldfiles")
-    (tmap :ft "treesitter")
+    (tmap :fts "treesitter")
+    (tmap :ft "telescope-tabs list_tabs")
     (tmap :fc "commands")
     (tmap :fC "command_history")
     (tmap :fq "quickfix")

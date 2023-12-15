@@ -29,6 +29,9 @@
 (set nvim.g.spelllang "de,en")
 (nvim.ex.set :list)
 
+(set vim.g.loaded_netrw 1)
+(set vim.g.loaded_netrwPlugin 1)
+
 
 ;;; Mappings
 
@@ -48,11 +51,13 @@
   :PeterRincker/vim-argumentative {}
   :airblade/vim-gitgutter {}
   :clojure-vim/clojure.vim {}
+  :ray-x/lsp_signature.nvim {:mod :lsp_signature}
+  :LukasPietzschmann/telescope-tabs {}
   :clojure-vim/vim-jack-in {}
   :folke/which-key.nvim {:mod :which-key}
   :ggandor/lightspeed.nvim {}
   :guns/vim-sexp {:mod :sexp}
-  :nvim-treesitter/nvim-treesitter {:mod :treesitter}
+  :nvim-treesitter/nvim-treesitter {:mod :treesitter :requires [[:nvim-treesitter/playground]]}
   :hrsh7th/cmp-buffer {}
   :hrsh7th/cmp-cmdline {}
   :hrsh7th/cmp-nvim-lsp {}
@@ -65,8 +70,12 @@
   :liuchengxu/vim-better-default {:mod :better-default}
   :shaunsingh/nord.nvim {:mod :nord}
   :mbbill/undotree {:mod :undotree}
-  :neovim/nvim-lspconfig {:mod :lspconfig}
+  :nvim-tree/nvim-tree.lua {:mod :nvim-tree}
+  :posva/vim-vue {}
+  :neovim/nvim-lspconfig {:mod :lspconfig :requires [["b0o/SchemaStore.nvim"]]}
   :nvim-lualine/lualine.nvim {:mod :lualine}
+  :ryanoasis/vim-devicons {}
+  :junegunn/vim-emoji {}
   :akinsho/bufferline.nvim {:mod :bufferline :tag "v3.*" :requires [[:nvim-tree/nvim-web-devicons]]}
   :folke/trouble.nvim {:mod :trouble :requires [[:nvim-tree/nvim-web-devicons]]}
   :nvim-telescope/telescope-file-browser.nvim {}
@@ -76,9 +85,12 @@
   ;:vim-test/vim-test {:mod :vim-test}
   :nvim-neotest/neotest {:mod :neotest
                          :requires [[:nvim-lua/plenary.nvim]
+                                    [:zidhuss/neotest-minitest]
                                     [:mfussenegger/nvim-dap]
                                     [:suketa/nvim-dap-ruby]
-                                    [:olimorris/neotest-rspec]
+                                    [:nvim-neotest/neotest-jest]
+                                    [:rouge8/neotest-rust]
+                                    ["~/src/neotest-rspec"]
                                     [:nvim-treesitter/nvim-treesitter]
                                     [:antoinemadec/FixCursorHold.nvim]]}
   :haydenmeade/neotest-jest {}
@@ -87,6 +99,7 @@
   :bhurlow/vim-parinfer {}
   :AndrewRadev/splitjoin.vim {}
   :radenling/vim-dispatch-neovim {}
+  :yorickpeterse/nvim-pqf {}
   :tpope/vim-abolish {}
   :tpope/vim-commentary {}
   :tpope/vim-dispatch {}

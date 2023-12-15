@@ -3,4 +3,4 @@
    require-macros [magic.macros]})
 
 (augroup :fugitive
-  (vim.cmd "autocmd FileType fugitiveblame nnoremap <buffer> K :Git show<CR>"))
+  (vim.cmd "autocmd FileType fugitiveblame noremap <buffer> K :Git show<CR>"))
